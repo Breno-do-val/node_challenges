@@ -1,0 +1,44 @@
+<%- include('partials/head.ejs') %>
+
+<%- include('partials/header.ejs') %>
+
+<section class="main">
+    
+    <div class="main__info">
+        <h1 class="main__info--title">Bem vindo ao Clima Tempo</h1>
+        <h2 class="main__info--sub">Veja o clima das principais cidades</h2>
+    </div>
+
+    <% if (cities.length > 0) { %>
+        <div class="main__form">
+
+            <% for (let city of  cities) { %>
+                <div class="main__form--city">
+
+                    <div class="item">
+                        <h5><%=city.name %> - <%=city.state %></h5>
+                    </div>
+
+                    <div class="item">
+                        <p>Latitude:<span>&nbsp; <%=city.latitude%> </span></p>
+                        <p>Longitude:<span>&nbsp;  <%=city.longitude%> </span></p>
+                    </div>
+
+                    <div class="item">
+                        <form action="/weather" method="POST">
+                            <button>Ver clima</button>
+                        </form>
+                    </div>
+
+                </div>
+
+            <% } %>
+            
+        </div>
+    <% } else { %>
+        <h1>Something went wrong!</h1>
+    <% } %>    
+
+</section>
+
+<%- include('partials/footer.ejs') %>
