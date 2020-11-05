@@ -1,0 +1,46 @@
+<%- include('partials/head.ejs') %>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body class="container">
+
+    <%- include('partials/header.ejs') %>
+    
+    <% for (let result of  results) { %>
+        <section class="session">
+
+            <h3 class="session__title">Previsão para <%= result.locale.name %> - <%= result.locale.state %> </h3>
+            
+            <h4 class="session__sub"> De <%= result.period.begin %> à <%= result.period.end %></h3>
+
+            <div class="session__content">
+                    <% for (let item of result.weather) { %>
+                        <div class="cards">
+                            <div class="cards__title">
+                                <h4><%= item.date %></h4>
+                            </div>
+                            <div class="cards__description">
+                                <p><%= item.text %></p>
+                            </div>
+                            <div class="cards__data">
+                                <div class="data__index">
+                                    <img src="/images/icons/upload.png" alt=""><p class="data__index--max"><%= item.temperature.max %>&ordm;C</p>
+                                </div>
+                                <div class="data__index">
+                                    <span><img src="/images/icons/download.png" alt=""><%= item.temperature.min %>&ordm;C</span>
+                                </div>
+                                <div class="data__index">
+                                    <span><img src="/images/icons/probability.png" alt=""><%= item.rain.probability %>%</span>
+                                </div>
+                                <div class="data__index">
+                                    <span><img src="/images/icons/precipitation.png" alt=""><%= item.rain.precipitation %>mm</span>
+                                </div>
+                            </div>
+                        </div>
+                    <% } %>
+            </div>
+            
+        </section>
+    <% } %> 
+
+<%- include('partials/footer.ejs') %>

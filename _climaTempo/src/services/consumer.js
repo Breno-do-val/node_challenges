@@ -5,7 +5,7 @@ const {
 } = require('fs');
 
 const {
-    promisify
+    promisify, callbackify
 } = require('util')
 
 const readFileAsync  = promisify(readFile);
@@ -23,7 +23,7 @@ exports.requestLocales = async function() {
 
 exports.requestWeather = async function() {
     try {
-        const result = await readFileAsync(path + '/weather.json');
+        const result = await readFileAsync(path.join(__dirname, '../base/weather.json'));
         const parsedResult = JSON.parse(result.toString());
         return parsedResult;
     } 

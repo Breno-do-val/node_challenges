@@ -6,7 +6,7 @@ const WeatherController = require('./controllers/weatherController');
 
 const routes = Router();
 
-routes.get('/weather', WeatherController.index);
-routes.post('/weather/:id', WeatherController.show); 
+routes.get('/', WeatherController.index);
+routes.get('/weather/:id', WeatherController.show); 
 
 module.exports = routes;
