@@ -27,5 +27,5 @@ base/weather.json
 
 #### Screenshots
 
-![](/src/public/screenshots/main.png)
-![](/src/public/screenshots/forecast.png)
+![](src/public/screenshots/main.png)
+![](src/public/screenshots/forecast.png)
